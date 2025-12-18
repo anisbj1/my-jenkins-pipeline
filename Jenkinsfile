@@ -17,7 +17,7 @@ pipeline {
             steps {
                 script {
                     // Si tu n’as pas Maven installé, ça va échouer, mais c’est pour l’exemple
-                    sh 'mvn --version'
+                    bat 'mvn --version'
                 }
             }
         }
