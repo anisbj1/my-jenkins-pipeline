@@ -10,7 +10,7 @@ pipeline {
         stage('Git checkout') {
             steps {
                 git branch: 'main', 
-                url: 'https://github.com/ton-username/my-jenkins-pipeline.git'
+                url: 'https://github.com/anisbj1/my-jenkins-pipeline.git'
             }
         }
         stage('Build avec Maven') {
