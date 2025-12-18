@@ -1,5 +1,10 @@
 pipeline {
     agent any
+    
+    // AJOUTE CETTE SECTION pour utiliser Maven configuré dans Jenkins
+    tools {
+        maven 'MAVEN_HOME'  // C'est le NOM que tu as donné dans la config Jenkins
+    }
 
     stages {
         stage('Hello') {
@@ -7,18 +12,10 @@ pipeline {
                 echo 'Bonjour, ceci est mon premier pipeline Jenkins!'
             }
         }
-        stage('Git checkout') {
+        stage('Test Maven') {
             steps {
-                git branch: 'main', 
-                url: 'https://github.com/anisbj1/my-jenkins-pipeline.git'
-            }
-        }
-        stage('Build avec Maven') {
-            steps {
-                script {
-                    // Si tu n’as pas Maven installé, ça va échouer, mais c’est pour l’exemple
-                    bat 'mvn --version'
-                }
+                // Utilise 'bat' pour Windows, mais avec Maven configuré
+                bat 'mvn --version'
             }
         }
     }
